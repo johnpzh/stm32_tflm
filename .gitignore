@@ -1,6 +1,6 @@
-# Build Folder
-Debug/
-Release/
+## Build Folder
+#Debug/
+#Release/
 
 # Prerequisites
 *.d
