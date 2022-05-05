@@ -1,0 +1,2 @@
+../Utilities/tensorflow/lite/micro/kernels/quantize.cc:28:7:void* tflite::{anonymous}::Init(TfLiteContext*, const char*, size_t)	24	static
+../Utilities/tensorflow/lite/micro/kernels/quantize.cc:36:20:TfLiteRegistration tflite::Register_QUANTIZE()	24	static
