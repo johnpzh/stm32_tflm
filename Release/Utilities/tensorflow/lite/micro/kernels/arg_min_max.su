@@ -1,0 +1,7 @@
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/kernels/internal/runtime_shape.h:54:11:int32_t tflite::RuntimeShape::Dims(int) const	8	static
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/micro/kernels/kernel_util.h:31:26:TfLiteEvalTensor* tflite::micro::GetMutableEvalInput(const TfLiteContext*, const TfLiteNode*, int)	8	static
+../Utilities/tensorflow/lite/micro/kernels/arg_min_max.cc:48:14:TfLiteStatus tflite::ops::micro::arg_min_max::Eval(TfLiteContext*, TfLiteNode*, bool)	160	static
+../Utilities/tensorflow/lite/micro/kernels/arg_min_max.cc:96:14:TfLiteStatus tflite::ops::micro::arg_min_max::ArgMinEval(TfLiteContext*, TfLiteNode*)	0	static
+../Utilities/tensorflow/lite/micro/kernels/arg_min_max.cc:100:14:TfLiteStatus tflite::ops::micro::arg_min_max::ArgMaxEval(TfLiteContext*, TfLiteNode*)	0	static
+../Utilities/tensorflow/lite/micro/kernels/arg_min_max.cc:106:20:TfLiteRegistration tflite::ops::micro::Register_ARG_MAX()	8	static
+../Utilities/tensorflow/lite/micro/kernels/arg_min_max.cc:117:20:TfLiteRegistration tflite::ops::micro::Register_ARG_MIN()	8	static

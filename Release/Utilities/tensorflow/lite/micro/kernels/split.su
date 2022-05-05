@@ -1,0 +1,9 @@
+../Utilities/tensorflow/lite/micro/kernels/split.cc:70:14:TfLiteStatus tflite::ops::micro::split::Prepare(TfLiteContext*, TfLiteNode*)	24	static
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/micro/kernels/kernel_util.h:31:26:TfLiteEvalTensor* tflite::micro::GetMutableEvalInput(const TfLiteContext*, const TfLiteNode*, int)	8	static
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/micro/kernels/kernel_util.h:46:26:TfLiteEvalTensor* tflite::micro::GetEvalOutput(const TfLiteContext*, const TfLiteNode*, int)	8	static
+../Utilities/tensorflow/lite/micro/kernels/split.cc:119:20:TfLiteRegistration tflite::ops::micro::Register_SPLIT()	16	static
+../Utilities/tensorflow/lite/micro/kernels/split.cc:28:14:TfLiteStatus tflite::ops::micro::split::SplitImpl(TfLiteContext*, TfLiteNode*, const TfLiteEvalTensor*, int) [with T = float]	56	static
+../Utilities/tensorflow/lite/micro/kernels/split.cc:28:14:TfLiteStatus tflite::ops::micro::split::SplitImpl(TfLiteContext*, TfLiteNode*, const TfLiteEvalTensor*, int) [with T = signed char]	56	static
+../Utilities/tensorflow/lite/micro/kernels/split.cc:28:14:TfLiteStatus tflite::ops::micro::split::SplitImpl(TfLiteContext*, TfLiteNode*, const TfLiteEvalTensor*, int) [with T = short int]	56	static
+../Utilities/tensorflow/lite/micro/kernels/split.cc:28:14:TfLiteStatus tflite::ops::micro::split::SplitImpl(TfLiteContext*, TfLiteNode*, const TfLiteEvalTensor*, int) [with T = long int]	56	static
+../Utilities/tensorflow/lite/micro/kernels/split.cc:82:14:TfLiteStatus tflite::ops::micro::split::Eval(TfLiteContext*, TfLiteNode*)	24	static

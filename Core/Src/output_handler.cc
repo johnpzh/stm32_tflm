@@ -18,6 +18,7 @@ limitations under the License.
 //#include "LCD_DISCO_F746NG.h"
 //#include "LCD_DISCO_F469NI.h"
 #include "constants.h"
+#include "stdio.h"
 
 // The LCD driver
 //LCD_DISCO_F746NG lcd;

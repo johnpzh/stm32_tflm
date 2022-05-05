@@ -1,0 +1,2 @@
+../Utilities/tensorflow/lite/micro/kernels/leaky_relu_common.cc:31:14:TfLiteStatus tflite::CalculateOpDataLeakyRelu(TfLiteContext*, TfLiteNode*)	56	static
+../Utilities/tensorflow/lite/micro/kernels/leaky_relu_common.cc:68:14:TfLiteStatus tflite::LeakyReluPrepare(TfLiteContext*, TfLiteNode*)	0	static

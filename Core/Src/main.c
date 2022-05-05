@@ -90,9 +90,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-  if (setup()) {
-    return -1;
-  }
+  setup();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -101,9 +99,9 @@ int main(void)
   {
     /* USER CODE END WHILE */
 //    printf("Hello, 28Printf.\n");
+    loop();
     HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
     HAL_Delay(500);
-    loop();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

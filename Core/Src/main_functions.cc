@@ -12,17 +12,20 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
-
+#include "main.h"
 #include "main_functions.h"
 
 #include "tensorflow/lite/micro/all_ops_resolver.h"
 #include "constants.h"
-#include "hello_world_model_data.h"
+//#include "hello_world_model_data.h"
 #include "output_handler.h"
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/micro/system_setup.h"
 #include "tensorflow/lite/schema/schema_generated.h"
+#include "stdio.h"
+#include "../Models/mbv2-w0.3-r80_imagenet.h" // MobileNetV2 from MCUNet
+//#include "../Models/model_food.h" // Food model
 
 // Globals, used for compatibility with Arduino-style sketches.
 namespace {
@@ -33,7 +36,8 @@ TfLiteTensor* input = nullptr;
 TfLiteTensor* output = nullptr;
 int inference_count = 0;
 
-constexpr int kTensorArenaSize = 2000;
+//constexpr int kTensorArenaSize = 2000;
+constexpr int kTensorArenaSize = 305 * 1024; // for MobileNetV2 in MCUNet
 uint8_t tensor_arena[kTensorArenaSize];
 }  // namespace
 
@@ -49,7 +53,9 @@ void setup() {
 
   // Map the model into a usable data structure. This doesn't involve any
   // copying or parsing, it's a very lightweight operation.
-  model = tflite::GetModel(g_hello_world_model_data);
+//  model = tflite::GetModel(g_hello_world_model_data);
+  model = tflite::GetModel(mbv2_w0_3_r80_imagenet_tflite); // MobileNetV2 from MCUNet
+//  model = tflite::GetModel(model_food_tflite); // food model, input 65, output 11
   if (model->version() != TFLITE_SCHEMA_VERSION) {
     TF_LITE_REPORT_ERROR(error_reporter,
                          "Model provided is schema version %d not equal "
@@ -82,40 +88,98 @@ void setup() {
   inference_count = 0;
 }
 
-// The name of this function is important for Arduino compatibility.
 void loop() {
-  // Calculate an x value to feed into the model. We compare the current
-  // inference_count to the number of inferences per cycle to determine
-  // our position within the range of possible x values the model was
-  // trained on, and use this to calculate a value.
-  float position = static_cast<float>(inference_count) /
-                   static_cast<float>(kInferencesPerCycle);
-  float x = position * kXrange;
+//  float run_time = -get_time_mark();
+  uint32_t miliseconds = HAL_GetTick();
+  for (uint32_t loop_i = 0; loop_i < LOOP_SIZE; ++loop_i) {
+       for (uint32_t i = 0; i < INPUT_IMAGE_WIDTH * INPUT_IMAGE_HEIGHT * INPUT_IMAGE_CHANNEL; ++i) {
+           input->data.int8[i] = 15;
+////            input->data.int8[i] = 0;
+//        for (uint32_t i = 0; i < INPUT_VECTOR_SIZE; ++i) { // for Food Model
+//            input->data.f[i] = 0; // float32?
+       }
 
-  // Quantize the input from floating-point to integer
-  int8_t x_quantized = x / input->params.scale + input->params.zero_point;
-  // Place the quantized input in the model's input tensor
-  input->data.int8[0] = x_quantized;
+       // Run inference, and report any error
+       TfLiteStatus invoke_status = interpreter->Invoke();
+       if (invoke_status != kTfLiteOk) {
+           TF_LITE_REPORT_ERROR(error_reporter, "Invoke failed.\n");
+           return;
+       }
 
-  // Run inference, and report any error
-  TfLiteStatus invoke_status = interpreter->Invoke();
-  if (invoke_status != kTfLiteOk) {
-    TF_LITE_REPORT_ERROR(error_reporter, "Invoke failed on x: %f\n",
-                         static_cast<double>(x));
-    return;
-  }
+//       // test restuls
+//       if (loop_i) {
+//         continue;
+//       }
+//       int sum = 0;
+//       for (uint32_t i = 0; i < OUTPUT_VECTOR_SIZE; ++i) {
+//           // TF_LITE_REPORT_ERROR(error_reporter, "[i]: %d ", output->data.int8[i]);
+//           sum += output->data.int8[i];
+//           printf("%lu: %d\n\r", i, output->data.int8[i]);
+//       }
+//       // TF_LITE_REPORT_ERROR(error_reporter, "\n");
+//       printf("sum: %ld\n\r", sum);
+   }
+   // run_time += get_time_mark();
+   // TF_LITE_REPORT_ERROR(error_reporter,
+   //                         "run_time(s.): %f "
+   //                         "latency(ms.): %f ",
+   //                         run_time,
+   //                         run_time / LOOP_SIZE * 1000.0);
+//   run_time += get_time_mark();
+  uint32_t run_time = HAL_GetTick() - miliseconds;
+  printf("run_time(ms.): %lu latency(ms.): %lu\n\r",
+           run_time,
+           run_time / LOOP_SIZE);
 
-  // Obtain the quantized output from model's output tensor
-  int8_t y_quantized = output->data.int8[0];
-  // Dequantize the output from integer to floating-point
-  float y = (y_quantized - output->params.zero_point) * output->params.scale;
-
-  // Output the results. A custom HandleOutput function can be implemented
-  // for each supported hardware target.
-  HandleOutput(error_reporter, x, y);
-
-  // Increment the inference_counter, and reset it if we have reached
-  // the total number per cycle
-  inference_count += 1;
-  if (inference_count >= kInferencesPerCycle) inference_count = 0;
+//   {  //
+//      // for (int i = 0; i < 100; ++i) {
+//     TF_LITE_REPORT_ERROR(error_reporter,
+//                          "input->dims->size: %d "
+//                          "input->bytes: %d\n",
+//                          input->dims->size, input->bytes);
+//     // }
+//     wait_ms(1000);
+//   }
 }
+
+//////////////////////////
+//// Backup
+//// The name of this function is important for Arduino compatibility.
+//void loop() {
+//  // Calculate an x value to feed into the model. We compare the current
+//  // inference_count to the number of inferences per cycle to determine
+//  // our position within the range of possible x values the model was
+//  // trained on, and use this to calculate a value.
+//  float position = static_cast<float>(inference_count) /
+//                   static_cast<float>(kInferencesPerCycle);
+//  float x = position * kXrange;
+//
+//  // Quantize the input from floating-point to integer
+//  int8_t x_quantized = x / input->params.scale + input->params.zero_point;
+//  // Place the quantized input in the model's input tensor
+//  input->data.int8[0] = x_quantized;
+//
+//  // Run inference, and report any error
+//  TfLiteStatus invoke_status = interpreter->Invoke();
+//  if (invoke_status != kTfLiteOk) {
+//    TF_LITE_REPORT_ERROR(error_reporter, "Invoke failed on x: %f\n",
+//                         static_cast<double>(x));
+//    return;
+//  }
+//
+//  // Obtain the quantized output from model's output tensor
+//  int8_t y_quantized = output->data.int8[0];
+//  // Dequantize the output from integer to floating-point
+//  float y = (y_quantized - output->params.zero_point) * output->params.scale;
+//
+//  // Output the results. A custom HandleOutput function can be implemented
+//  // for each supported hardware target.
+//  HandleOutput(error_reporter, x, y);
+//
+//  // Increment the inference_counter, and reset it if we have reached
+//  // the total number per cycle
+//  inference_count += 1;
+//  if (inference_count >= kInferencesPerCycle) inference_count = 0;
+//}
+//// End Backup
+//////////////////////////

@@ -1,0 +1,2 @@
+../Utilities/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/PoolingFunctions/arm_avgpool_s8.c:243:12:arm_avgpool_s8	136	static,ignoring_inline_asm
+../Utilities/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/PoolingFunctions/arm_avgpool_s8.c:369:9:arm_avgpool_s8_get_buffer_size	0	static

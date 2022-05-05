@@ -1,0 +1,27 @@
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:42:22:TfLiteTensor* tflite::{anonymous}::GetTensorAtIndex(const TfLiteContext*, int)	4	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:52:21:TfLiteStatus tflite::{anonymous}::ValidateTensorIndexingSafe(const TfLiteContext*, int, int, const int*, int*)	16	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:339:21:TfLiteStatus tflite::{anonymous}::Quantize(TfLiteContext*, float, int32_t, float, int32_t&)	24	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:86:22:TfLiteTensor* tflite::{anonymous}::GetMutableInput(const TfLiteContext*, const TfLiteNode*, int)	0	static
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.0.202111181127/tools/arm-none-eabi/include/c++/10.3.1/bits/basic_string.h:6609:3:std::string std::__cxx11::to_string(int)	24	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:109:21:const TfLiteTensor* tflite::GetInput(const TfLiteContext*, const TfLiteNode*, int)	0	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:114:14:TfLiteStatus tflite::GetInputSafe(const TfLiteContext*, const TfLiteNode*, int, const TfLiteTensor**)	32	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:119:15:TfLiteTensor* tflite::GetVariableInput(TfLiteContext*, const TfLiteNode*, int)	8	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:126:15:TfLiteTensor* tflite::GetOutput(TfLiteContext*, const TfLiteNode*, int)	0	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:136:14:TfLiteStatus tflite::GetOutputSafe(const TfLiteContext*, const TfLiteNode*, int, TfLiteTensor**)	32	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:146:21:const TfLiteTensor* tflite::GetOptionalInputTensor(const TfLiteContext*, const TfLiteNode*, int)	0	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:152:15:TfLiteTensor* tflite::GetTemporary(TfLiteContext*, const TfLiteNode*, int)	0	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:162:14:TfLiteStatus tflite::GetTemporarySafe(const TfLiteContext*, const TfLiteNode*, int, TfLiteTensor**)	32	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:173:21:const TfLiteTensor* tflite::GetIntermediates(TfLiteContext*, const TfLiteNode*, int)	0	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:183:14:TfLiteStatus tflite::GetIntermediatesSafe(const TfLiteContext*, const TfLiteNode*, int, TfLiteTensor**)	32	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:324:14:TfLiteStatus tflite::GetQuantizedConvolutionMultipler(TfLiteContext*, const TfLiteTensor*, const TfLiteTensor*, TfLiteTensor*, double*)	24	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:287:14:TfLiteStatus tflite::GetQuantizedConvolutionMultipler(TfLiteContext*, const TfLiteTensor*, const TfLiteTensor*, const TfLiteTensor*, TfLiteTensor*, double*)	48	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:384:14:TfLiteStatus tflite::CalculateActivationRangeQuantized(TfLiteContext*, TfLiteFusedActivation, TfLiteTensor*, int32_t*, int32_t*)	48	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:211:14:TfLiteStatus tflite::PopulateConvolutionQuantizationParams(TfLiteContext*, const TfLiteTensor*, const TfLiteTensor*, const TfLiteTensor*, TfLiteTensor*, const TfLiteFusedActivation&, int32_t*, int*, int32_t*, int32_t*, int32_t*, int32_t*, int)	136	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:196:14:TfLiteStatus tflite::PopulateConvolutionQuantizationParams(TfLiteContext*, const TfLiteTensor*, const TfLiteTensor*, const TfLiteTensor*, TfLiteTensor*, const TfLiteFusedActivation&, int32_t*, int*, int32_t*, int32_t*, int32_t*, int32_t*)	48	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:408:6:bool tflite::HaveSameShapes(const TfLiteTensor*, const TfLiteTensor*)	8	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:419:13:std::string tflite::GetShapeDebugString(const TfLiteIntArray*)	96	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:498:5:int tflite::TfLiteTypeGetSize(TfLiteType)	0	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:543:6:bool tflite::IsMobilePlatform()	0	static
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.macos64_1.0.0.202111181127/tools/arm-none-eabi/include/c++/10.3.1/bits/unique_ptr.h:355:7:std::unique_ptr<_Tp, _Dp>::~unique_ptr() [with _Tp = TfLiteIntArray; _Dp = void (*)(TfLiteIntArray*)]	8	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:431:14:TfLiteStatus tflite::CalculateShapeForBroadcast(TfLiteContext*, const TfLiteTensor*, const TfLiteTensor*, TfLiteIntArray**)	104	static
+../Utilities/tensorflow/lite/kernels/kernel_util.cc:462:14:TfLiteStatus tflite::CalculateShapeForBroadcast(TfLiteContext*, const TfLiteTensor*, const TfLiteTensor*, const TfLiteTensor*, TfLiteIntArray**)	136	static

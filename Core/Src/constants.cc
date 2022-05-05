@@ -14,6 +14,14 @@ limitations under the License.
 ==============================================================================*/
 
 #include "constants.h"
+#include <sys/time.h>
 
 // A larger number than the default to make the animation smoother
 const int kInferencesPerCycle = 70;
+
+float get_time_mark()
+{
+    timeval t;
+    gettimeofday(&t, nullptr);
+    return t.tv_sec * 1000000.0f + t.tv_usec;
+}

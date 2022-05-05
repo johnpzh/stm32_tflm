@@ -29,4 +29,21 @@ const float kXrange = 2.f * 3.14159265359f;
 // inference, this value should be defined per-device.
 extern const int kInferencesPerCycle;
 
+#define LOOP_SIZE            2
+#define INPUT_VECTOR_SIZE    65
+#define INPUT_IMAGE_HEIGHT   80
+#define INPUT_IMAGE_WIDTH    80
+#define INPUT_IMAGE_CHANNEL  3
+#define OUTPUT_VECTOR_SIZE   1000
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+float get_time_mark();
+
+#ifdef __cplusplus
+}
+#endif
+
 #endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_CONSTANTS_H_

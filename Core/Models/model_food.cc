@@ -1,4 +1,4 @@
-#include "tensorflow/lite/micro/examples/hello_world/model_food.h"
+#include "model_food.h"
 
 alignas(8) const unsigned char model_food_tflite[] = {
   0x1c, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x14, 0x00, 0x20, 0x00,

@@ -1,0 +1,5 @@
+../Core/Src/main_functions.cc:51:37:void __tcf_0()	0	static
+../Core/Src/main_functions.cc:73:70:void __tcf_2()	0	static
+../Core/Src/main_functions.cc:69:33:void __tcf_1()	0	static
+../Core/Src/main_functions.cc:45:6:void setup()	48	static
+../Core/Src/main_functions.cc:91:6:void loop()	16	static

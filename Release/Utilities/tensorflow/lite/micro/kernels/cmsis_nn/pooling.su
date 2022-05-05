@@ -1,0 +1,11 @@
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/pooling.cc:141:7:void* tflite::{anonymous}::Init(TfLiteContext*, const char*, size_t)	8	static
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/pooling.cc:146:14:TfLiteStatus tflite::{anonymous}::MaxPrepare(TfLiteContext*, TfLiteNode*)	8	static
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/kernels/internal/runtime_shape.h:54:11:int32_t tflite::RuntimeShape::Dims(int) const	8	static
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/kernels/internal/types.h:247:12:int tflite::MatchingDim(const tflite::RuntimeShape&, int, const tflite::RuntimeShape&, int)	16	static
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/pooling.cc:153:14:TfLiteStatus tflite::{anonymous}::AveragePrepare(TfLiteContext*, TfLiteNode*)	72	static
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/micro/kernels/kernel_util.h:31:26:TfLiteEvalTensor* tflite::micro::GetMutableEvalInput(const TfLiteContext*, const TfLiteNode*, int)	8	static
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/micro/kernels/kernel_util.h:46:26:TfLiteEvalTensor* tflite::micro::GetEvalOutput(const TfLiteContext*, const TfLiteNode*, int)	8	static
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/pooling.cc:183:14:TfLiteStatus tflite::{anonymous}::AverageEval(TfLiteContext*, TfLiteNode*)	176	static
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/pooling.cc:212:14:TfLiteStatus tflite::{anonymous}::MaxEval(TfLiteContext*, TfLiteNode*)	176	static
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/pooling.cc:242:20:TfLiteRegistration tflite::Register_AVERAGE_POOL_2D()	16	static
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/pooling.cc:253:20:TfLiteRegistration tflite::Register_MAX_POOL_2D()	16	static

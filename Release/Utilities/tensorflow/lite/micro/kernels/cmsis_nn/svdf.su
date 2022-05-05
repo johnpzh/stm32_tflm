@@ -1,0 +1,6 @@
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/svdf.cc:281:7:void* tflite::{anonymous}::Init(TfLiteContext*, const char*, size_t)	8	static
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/svdf.cc:286:14:TfLiteStatus tflite::{anonymous}::Prepare(TfLiteContext*, TfLiteNode*)	96	static
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/micro/kernels/activation_utils.h:32:14:float tflite::ops::micro::ActivationValFloat(TfLiteFusedActivation, float)	8	static
+/Users/johnpzh/pppp/STM32CubeIDE/028Printf/Utilities/tensorflow/lite/micro/kernels/kernel_util.h:31:26:TfLiteEvalTensor* tflite::micro::GetMutableEvalInput(const TfLiteContext*, const TfLiteNode*, int)	8	static
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/svdf.cc:423:14:TfLiteStatus tflite::{anonymous}::Eval(TfLiteContext*, TfLiteNode*)	328	static
+../Utilities/tensorflow/lite/micro/kernels/cmsis_nn/svdf.cc:469:20:TfLiteRegistration tflite::Register_SVDF()	16	static
