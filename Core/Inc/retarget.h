@@ -8,6 +8,9 @@
 #ifndef INC_RETARGET_H_
 #define INC_RETARGET_H_
 
+
+extern UART_HandleTypeDef huart3;
+
 #ifdef __GNUC__
   /* With GCC, small printf (option LD Linker->Libraries->Small printf
      set to 'Yes') calls __io_putchar() */
@@ -15,7 +18,6 @@
 #else
   #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif /* __GNUC__ */
-
 
 
 #endif /* INC_RETARGET_H_ */

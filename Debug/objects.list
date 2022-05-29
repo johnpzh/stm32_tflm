@@ -5,6 +5,7 @@
 "./Core/Src/main.o"
 "./Core/Src/main_functions.o"
 "./Core/Src/output_handler.o"
+"./Core/Src/retarget.o"
 "./Core/Src/stm32f4xx_hal_msp.o"
 "./Core/Src/stm32f4xx_it.o"
 "./Core/Src/syscalls.o"

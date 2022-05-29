@@ -90,46 +90,48 @@ void setup() {
 
 void loop() {
 //  float run_time = -get_time_mark();
+
+
+  for (uint32_t i = 0; i < INPUT_IMAGE_WIDTH * INPUT_IMAGE_HEIGHT * INPUT_IMAGE_CHANNEL; ++i) {
+     input->data.int8[i] = 15;
+  ////            input->data.int8[i] = 0;
+  //        for (uint32_t i = 0; i < INPUT_VECTOR_SIZE; ++i) { // for Food Model
+  //            input->data.f[i] = 0; // float32?
+  }
+
+
   uint32_t miliseconds = HAL_GetTick();
   for (uint32_t loop_i = 0; loop_i < LOOP_SIZE; ++loop_i) {
-       for (uint32_t i = 0; i < INPUT_IMAGE_WIDTH * INPUT_IMAGE_HEIGHT * INPUT_IMAGE_CHANNEL; ++i) {
-           input->data.int8[i] = 15;
-////            input->data.int8[i] = 0;
-//        for (uint32_t i = 0; i < INPUT_VECTOR_SIZE; ++i) { // for Food Model
-//            input->data.f[i] = 0; // float32?
-       }
-
-       // Run inference, and report any error
-       TfLiteStatus invoke_status = interpreter->Invoke();
-       if (invoke_status != kTfLiteOk) {
-           TF_LITE_REPORT_ERROR(error_reporter, "Invoke failed.\n");
-           return;
-       }
-
-//       // test restuls
-//       if (loop_i) {
-//         continue;
-//       }
-//       int sum = 0;
-//       for (uint32_t i = 0; i < OUTPUT_VECTOR_SIZE; ++i) {
-//           // TF_LITE_REPORT_ERROR(error_reporter, "[i]: %d ", output->data.int8[i]);
-//           sum += output->data.int8[i];
-//           printf("%lu: %d\n\r", i, output->data.int8[i]);
-//       }
-//       // TF_LITE_REPORT_ERROR(error_reporter, "\n");
-//       printf("sum: %ld\n\r", sum);
-   }
-   // run_time += get_time_mark();
-   // TF_LITE_REPORT_ERROR(error_reporter,
-   //                         "run_time(s.): %f "
-   //                         "latency(ms.): %f ",
-   //                         run_time,
-   //                         run_time / LOOP_SIZE * 1000.0);
-//   run_time += get_time_mark();
+     TfLiteStatus invoke_status = interpreter->Invoke();
+     // Run inference, and report any error
+     if (invoke_status != kTfLiteOk) {
+         TF_LITE_REPORT_ERROR(error_reporter, "Invoke failed.\n");
+         return;
+     }
+  //       // test restuls
+  //       if (loop_i) {
+  //         continue;
+  //       }
+  //       int sum = 0;
+  //       for (uint32_t i = 0; i < OUTPUT_VECTOR_SIZE; ++i) {
+  //           // TF_LITE_REPORT_ERROR(error_reporter, "[i]: %d ", output->data.int8[i]);
+  //           sum += output->data.int8[i];
+  //           printf("%lu: %d\n\r", i, output->data.int8[i]);
+  //       }
+  //       // TF_LITE_REPORT_ERROR(error_reporter, "\n");
+  //       printf("sum: %ld\n\r", sum);
+  }
+  // run_time += get_time_mark();
+  // TF_LITE_REPORT_ERROR(error_reporter,
+  //                         "run_time(s.): %f "
+  //                         "latency(ms.): %f ",
+  //                         run_time,
+  //                         run_time / LOOP_SIZE * 1000.0);
+  //   run_time += get_time_mark();
   uint32_t run_time = HAL_GetTick() - miliseconds;
-  printf("run_time(ms.): %lu latency(ms.): %lu\n\r",
-           run_time,
-           run_time / LOOP_SIZE);
+  printf("028run_time(ms.): %lu latency(ms.): %lu\n\r",
+         run_time,
+         run_time / LOOP_SIZE);
 
 //   {  //
 //      // for (int i = 0; i < 100; ++i) {

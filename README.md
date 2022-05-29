@@ -23,4 +23,5 @@ Strangely, tflite-micro has changed a lot and removed useful READMEs. The old ve
 3. Exclude `Drivers/CMSIS/Include` from includes because tflite's CMSIS is newer (include needs to be added).
 4. Create a `C++` project, not a `C` project, otherwise the IDE will not use C++ compiler or linker.
 5. When setting up STM32 project and it asks if using all default values, select **NO**. Then only add `USART3` with `Asynchronous` mode for enabling using `printf`. Other peripherals on the board are not used right now.
+   1. Actually, using all default values are also convenient. Just turn off `DSIHOST`, `FREERTOS`, `LTDC`, `USART6`, `USB_OTG_FS`, and `USB_OTG_HS`. Also set `SDIO` to `SD 1 bit` if you want to use SD Card.
 6. Together with 5, the `main.c` should not be changed to `main.cc` or `main.cpp`, otherwise `printf` will not work.
